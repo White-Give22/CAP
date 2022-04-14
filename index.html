@@ -28,20 +28,17 @@
     <head>
         <title>HTML5 Canvas Winning Wheel</title>
         <link rel="stylesheet" href="main.css" type="text/css" />
-        <script type="text/javascript" src="../../Winwheel.js"></script>
+        <script type="text/javascript" src="Winwheel.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     </head>
     <body>
         <div align="center">
-            <h1>Winwheel.js example wheel - wheel of fortune</h1>
-            <p>Here is an example of a code-drawn Wheel of Fortune looking wheel which spins to a stop with the prize won alerted to the user.</p>
+            <h1>Wheel Of Fortune</h1>
+            
             <br />
-            <p>
-                With some additional coding it could be made so that the prize won is added to a total after each spin rather than
-                just alerting the prize to make a proper wheel of fortune like game.
-            </p>
+
             <br />
-            <p>Choose a power setting then press the Spin button. You will be alerted to the prize won when the spinning stops.</p>
+            <p>Choose a power setting then press the Spin button. </p>
             <br />
             <table cellpadding="0" cellspacing="0" border="0">
             <tr>
@@ -66,8 +63,7 @@
                         <br />
                         <img id="spin_button" src="spin_off.png" alt="Spin" onClick="startSpin();" />
                         <br /><br />
-                        &nbsp;&nbsp;<a href="#" onClick="resetWheel(); return false;">Play Again</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reset)
-                    </div>
+                        &nbsp;&nbsp;<a href="#" onClick="resetWheel(); return false;">Reset</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    </div>
                 </td>
                 <td width="438" height="582" class="the_wheel" align="center" valign="center">
                     <canvas id="canvas" width="434" height="434">
@@ -84,46 +80,35 @@
                 'textFontSize'    : 24,         // Set default font size for the segments.
                 'textOrientation' : 'vertical', // Make text vertial so goes down from the outside of wheel.
                 'textAlignment'   : 'outer',    // Align text to outside of wheel.
-                'numSegments'     : 24,         // Specify number of segments.
+                'numSegments'     : 12,         // Specify number of segments.
                 'segments'        :             // Define segments including colour and text.
                 [                               // font size and test colour overridden on backrupt segments.
-                   {'fillStyle' : '#ee1c24', 'text' : '300'},
-                   {'fillStyle' : '#3cb878', 'text' : '450'},
-                   {'fillStyle' : '#f6989d', 'text' : '600'},
-                   {'fillStyle' : '#00aef0', 'text' : '750'},
-                   {'fillStyle' : '#f26522', 'text' : '500'},
-                   {'fillStyle' : '#000000', 'text' : 'BANKRUPT', 'textFontSize' : 16, 'textFillStyle' : '#ffffff'},
-                   {'fillStyle' : '#e70697', 'text' : '3000'},
-                   {'fillStyle' : '#fff200', 'text' : '600'},
-                   {'fillStyle' : '#f6989d', 'text' : '700'},
-                   {'fillStyle' : '#ee1c24', 'text' : '350'},
-                   {'fillStyle' : '#3cb878', 'text' : '500'},
-                   {'fillStyle' : '#f26522', 'text' : '800'},
-                   {'fillStyle' : '#a186be', 'text' : '300'},
-                   {'fillStyle' : '#fff200', 'text' : '400'},
-                   {'fillStyle' : '#00aef0', 'text' : '650'},
-                   {'fillStyle' : '#ee1c24', 'text' : '1000'},
-                   {'fillStyle' : '#f6989d', 'text' : '500'},
-                   {'fillStyle' : '#f26522', 'text' : '400'},
-                   {'fillStyle' : '#3cb878', 'text' : '900'},
-                   {'fillStyle' : '#000000', 'text' : 'BANKRUPT', 'textFontSize' : 16, 'textFillStyle' : '#ffffff'},
-                   {'fillStyle' : '#a186be', 'text' : '600'},
-                   {'fillStyle' : '#fff200', 'text' : '700'},
-                   {'fillStyle' : '#00aef0', 'text' : '800'},
-                   {'fillStyle' : '#ffffff', 'text' : 'LOOSE TURN', 'textFontSize' : 12}
+                     {'fillStyle' : '#1d004f', 'text' : 'Gift Card', 'textFontSize' : 15, 'textFillStyle' : '#dfd3f5'},
+                   {'fillStyle' : '#d1ebbc', 'text' : 'Candy'},
+                   {'fillStyle' : '#b7e6eb', 'text' : 'Candy'},
+                   {'fillStyle' : '#c8b7eb', 'text' : 'Candy'},
+                   {'fillStyle' : '#ccbcd1', 'text' : 'Candy'},
+                   {'fillStyle' : '#d1b2ab', 'text' : 'Candy'},
+                   {'fillStyle' : '#a6e3d1', 'text' : 'Candy'},
+                   {'fillStyle' : '#59bade', 'text' : 'Candy'},
+                   {'fillStyle' : '#f6989d', 'text' : 'Candy'},
+                   {'fillStyle' : '#ecffa1', 'text' : 'Candy'},
+                   {'fillStyle' : '#fff7bf', 'text' : 'Candy'},
+                   {'fillStyle' : '#e8ceb3', 'text' : 'Candy'},
+
                 ],
                 'animation' :           // Specify the animation to use.
                 {
                     'type'     : 'spinToStop',
                     'duration' : 10,    // Duration in seconds.
                     'spins'    : 3,     // Default number of complete spins.
-                    'callbackFinished' : alertPrize,
+
                     'callbackSound'    : playSound,   // Function to call when the tick sound is to be triggered.
                     'soundTrigger'     : 'pin'        // Specify pins are to trigger the sound, the other option is 'segment'.
                 },
                 'pins' :				// Turn pins on.
                 {
-                    'number'     : 24,
+                    'number'     : 12,
                     'fillStyle'  : 'silver',
                     'outerRadius': 4,
                 }
@@ -230,18 +215,7 @@
             // -------------------------------------------------------
             // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
             // -------------------------------------------------------
-            function alertPrize(indicatedSegment)
-            {
-                // Just alert to the user what happened.
-                // In a real project probably want to do something more interesting than this with the result.
-                if (indicatedSegment.text == 'LOOSE TURN') {
-                    alert('Sorry but you loose a turn.');
-                } else if (indicatedSegment.text == 'BANKRUPT') {
-                    alert('Oh no, you have gone BANKRUPT!');
-                } else {
-                    alert("You have won " + indicatedSegment.text);
-                }
-            }
+
         </script>
     </body>
 </html>
