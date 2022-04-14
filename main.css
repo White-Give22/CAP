@@ -1,19 +1,31 @@
 /*
 Description:
     Contains all the styles for the winning wheel page.
-    
+
 Verison History:
     2012-01-28, Douglas McKechie
     - Created based off earlier version.
-    
+
     2015-09-26, Douglas McKechie
     - Minor updates for the 2.0 winwheel example.
 */
+h1 {
 
-body
-{
-    font-family: arial;
+  color: AliceBlue     ;
+  text-align: center;
+  font-size: 30px;
+    text-decoration: underline;
 }
+body {
+  background-image:url(https://cdn.glitch.global/24bff6fb-5beb-4e7d-b299-227a17402e7f/photo-1514810771018-276192729582.jpg?v=1649848536632);
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+p {
+  font: 20px Ink Free, sans-serif;
+  line-height: 1;
+  color: #3b6b63;
+  text-align: center; }
 
 /* Sets the background image for the wheel */
 td.the_wheel
