@@ -13,17 +13,18 @@ h1 {
 
   color: AliceBlue     ;
   text-align: center;
-  font-size: 30px;
+  font-size: 50px;
     text-decoration: underline;
 }
 body {
-  background-image:url(preview.gif);
+  background-image:url(bg2.jpg);
  background-repeat: no-repeat;
  background-size: cover;
 }
 p {
   font: 20px Ink Free, sans-serif;
-  line-height: 1;
+  line-height: 1.1;
+  font-size: 30px;
   color: #3b6b63;
   text-align: center; }
 
